@@ -1,5 +1,10 @@
+## Example App
 
-### Getting Started
+This project is an example application for use with MeldCX AgentM, the application demonstates the use of the Newland FM30 barcode scanner with AgentM.
+
+![Screenshot](https://github.com/meldcx/peripheral-newland-fm30-example-app/raw/master/screen_shit.png)
+
+### Getting Started with Newland FM30 in AgentM
 
 To use the newland scanner in conjuntion with MeldCX agentM you will need to include the MeldCX AgentM Library, instructions using this can be found here: [https://docs.meld.cx/](https://docs.meld.cx/)
 

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        table {
+            width: 50%;
+        }
+    </style>
+    <script src="http://assets.meld.cx/agent/1.0.18/Agent.js"></script>
+    <!-- The above file should be downloaded and kept locally -->
+</head>
+<body>
+    <h1>Newland FM30 Barcode Scanner</h1>
+    <hr><br>
+    <font style="color: red; font-weight: bold;" class="error-text"></font><br>
+    <table>
+        <tr>
+            <td>Barcode</td>
+            <td><input type="text" readonly class="barcode-value"></td>
+            <td colspan="2"><button class="barcode-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>Event Listener</td>
+            <td><input type="text" readonly class="barcode-listener-value"></td>
+        </tr>
+        <tr><td colspan="4"><br></td></tr>
+
+        <tr><td colspan="4"><b>Product Information</b></td></tr>
+            <tr>
+                <td>Product Name</td>
+                <td class="product-name-value">Unknown</td>
+                <td colspan="3"><button class="product-name-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>Firmware Version</td>
+                <td class="firmware-version-value">Unknown</td>
+                <td colspan="3"><button class="firmware-version-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>Decoder Version</td>
+                <td class="decoder-version-value">Unknown</td>
+                <td colspan="3"><button class="decoder-version-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>Hardware Version</td>
+                <td class="hardware-version-value">Unknown</td>
+                <td colspan="3"><button class="hardware-version-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>Serial Number</td>
+                <td class="serial-number-value">Unknown</td>
+                <td colspan="3"><button class="serial-number-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>OEM Serial Number</td>
+                <td class="oem-serial-number-value">Unknown</td>
+                <td colspan="3"><button class="oem-serial-number-get">Get</button></td>
+            </tr>
+            <tr>
+                <td>Manufacture Date</td>
+                <td class="manufacture-date-value">Unknown</td>
+                <td colspan="3"><button class="manufacture-date-get">Get</button></td>
+            </tr>
+        <tr><td colspan="4"><br></td></tr>
+
+        <tr><td colspan="4"><b>Illumination</b></td></tr>
+        <tr>
+            <td>Status</td>
+            <td class="illumination-value">Unknown</td>
+            <td><button class="illumination-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+                <select class="illumination-select-value">
+                    <option value="2">On</option>
+                    <option value="0">Off</option>
+                    <option value="1">Normal</option>
+                </select>
+            </td>
+            <td><button class="illumination-select-set">Set</button></td>
+        </tr>
+        <tr><td colspan="4"><br></td></tr>
+
+        <tr><td colspan="4"><b>Good Read Beep</b></td></tr>
+        <tr>
+            <td>Status</td>
+            <td class="good-read-beep-value">Unknown</td>
+            <td><button class="good-read-beep-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+                <select class="good-read-beep-select">
+                    <option value="ON">Enabled</option>
+                    <option value="OFF">Disabled</option>
+                </select>
+            </td>
+            <td><button class="good-read-beep-set">Set</button></td>
+        </tr>
+        <tr><td style="text-align: center;">Volume</td></tr>
+        <tr>
+            <td>Value</td>
+            <td class="good-read-beep-volume-value">Unknown</td>
+            <td><button class="good-read-beep-volume-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <select class="good-read-beep-volume-select">
+                    <option value="0">Loud</option>
+                    <option value="1">Medium</option>
+                    <option value="2">Low</option>
+                </select>
+            </td>
+            <td><button class="good-read-beep-volume-set">Set</button></td>
+        </tr>
+        <tr><td style="text-align: center">Duration</td></tr>
+        <tr>
+            <td>Value</td>
+            <td class="good-read-beep-duration-value"></td>
+            <td><button class="good-read-beep-duration-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <select class="good-read-beep-duration-select">
+                    <option value="50">50ms</option>
+                    <option value="100">100ms</option>
+                    <option value="150">150ms</option>
+                    <option value="200">200ms</option>
+                </select>
+            </td>
+            <td><button class="good-read-beep-duration-set">Set</button></td>
+        </tr>
+        <tr><td style="text-align: center">Frequency</td></tr>
+        <tr>
+            <td>Value</td>
+            <td class="good-read-beep-frequency-value"></td>
+            <td><button class="good-read-beep-frequency-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <select class="good-read-beep-frequency-select">
+                    <option value="930">Extra Low (930Hz)</option>
+                    <option value="2700">Low (2700Hz)</option>
+                    <option value="3940">Medium (3940Hz)</option>
+                    <option value="4800">High (4800Hz)</option>
+                </select>
+            </td>
+            <td><button class="good-read-beep-frequency-set">Set</button></td>
+        </tr>
+        <tr><td colspan="4"><br></td></tr>
+
+        <tr><td colspan="4"><b>Power On Beep</b></td></tr>
+        <tr>
+            <td>Status</td>
+            <td class="power-on-beep-value">Unknown</td>
+            <td><button class="power-on-beep-get">Get</button></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+                <select class="power-on-beep-select">
+                    <option value="0">Disabled</option>
+                    <option value="1">Enabled</option>
+                </select>
+            </td>
+            <td><button class="power-on-beep-set">Set</button></td>
+        </tr>
+        <tr><td colspan="4"><br></td></tr>
+    </table>
+    <script src="index.js"></script>
+</body>
+</html>

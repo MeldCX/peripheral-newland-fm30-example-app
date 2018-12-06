@@ -69,6 +69,7 @@ const btnPowerOnBeepSet = document.querySelector('.power-on-beep-set')
 /** Global Vars */
 const {Agent} = window;
 let FM30 = null;
+let taskRunning = false;
 
 const errorMessage = msg => txtErrorText.textContent = msg;
 
@@ -88,9 +89,12 @@ const init = async() => {
 /** Product Information */
 
 const getBarcode = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         txtBarcodeValue.value = '';
         const barcode = await FM30.getBarcode();
+        taskRunning = false;
         txtBarcodeValue.value = barcode;
     } catch (ex) {
         errorMessage(ex.toString());
@@ -98,8 +102,11 @@ const getBarcode = async() => {
 }
 
 const getProductName = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const productName = await FM30.productName();
+        taskRunning = false;
         txtProductName.textContent = productName.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -107,8 +114,11 @@ const getProductName = async() => {
 }
 
 const getFirmwareVersion = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const firmwareVersion = await FM30.firmwareVersion();
+        taskRunning = false;
         txtFirmwareVersion.textContent = firmwareVersion.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -116,8 +126,11 @@ const getFirmwareVersion = async() => {
 }
 
 const getDecoderVersion = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const decoderVersion = await FM30.decoderVersion();
+        taskRunning = false;
         txtDecoderVersion.textContent = decoderVersion.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -125,8 +138,11 @@ const getDecoderVersion = async() => {
 }
 
 const getHardwareVersion = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const hardwareVersion = await FM30.hardwareVersion();
+        taskRunning = false;
         txtHardwareVersion.textContent = hardwareVersion.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -134,8 +150,11 @@ const getHardwareVersion = async() => {
 }
 
 const getSerialNumber = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const serialNumber = await FM30.productSerialNumber();
+        taskRunning = false;
         txtSerialNumber.textContent = serialNumber.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -143,8 +162,11 @@ const getSerialNumber = async() => {
 }
 
 const getOEMSerialNumber = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const oemSerialNumber = await FM30.OEMSerialNumber();
+        taskRunning = false;
         txtOEMSerialNumber.textContent = oemSerialNumber.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -152,8 +174,11 @@ const getOEMSerialNumber = async() => {
 }
 
 const getManufactureDate = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const manufactureDate = await FM30.manufactureDate();
+        taskRunning = false;
         txtManufactureDate.textContent = manufactureDate.split(':')[1];
     } catch(ex) {
         errorMessage(ex.toString());
@@ -163,8 +188,11 @@ const getManufactureDate = async() => {
 /** Illumination */
 
 const getIllumination = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = await FM30.illuminationState();
+        taskRunning = false;
         txtIllumination.textContent = state;
         lstIllumination.value = state;
     } catch (ex) {
@@ -173,21 +201,26 @@ const getIllumination = async() => {
 }
 
 const setIllumination = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = lstIllumination.value;
         switch (state) {
             case '2':
                 const onResult = await FM30.illuminationOn();
+                taskRunning = false;
                 console.log({onResult});
                 break;
 
             case '0':
                 const offResult = await FM30.illuminationOff();
+                taskRunning = false;
                 console.log({offResult});
                 break;
 
             case '1':
                 const normalResult = await FM30.illuminationNormal();
+                taskRunning = false;
                 console.log({normalResult});
                 break;
         }
@@ -199,8 +232,11 @@ const setIllumination = async() => {
 }
 
 const getGoodReadBeepState = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = await FM30.goodReadBeepState();
+        taskRunning = false;
         txtGoodReadBeepStatus.textContent = state;
         lstGoodReadBeep.value = state;
     } catch (ex) {
@@ -209,16 +245,20 @@ const getGoodReadBeepState = async() => {
 }
 
 const setGoodReadBeepState = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = lstGoodReadBeep.value;
         switch (state) {
             case 'ON':
                 const onResult = await FM30.goodReadBeepEnable();
+                taskRunning = false;
                 console.log({onResult});
                 break;
 
             case 'OFF':
                 const offResult = await FM30.goodReadBeepDisable();
+                taskRunning = false;
                 console.log({offResult});
                 break;
         }
@@ -230,8 +270,11 @@ const setGoodReadBeepState = async() => {
 }
 
 const getGoodReadBeepVolume = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = await FM30.getGoodReadBeepVolume();
+        taskRunning = false;
         txtGoodReadBeepVolume.textContent = state;
         lstGoodReadBeepVolume.value = state;
     } catch (ex) {
@@ -240,9 +283,12 @@ const getGoodReadBeepVolume = async() => {
 }
 
 const setGoodReadBeepVolume = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const volume = lstGoodReadBeepVolume.value;
         const result = await FM30.setGoodReadBeepVolume(volume);
+        taskRunning = false;
         console.log({result});
         await getGoodReadBeepVolume();
     } catch (ex) {
@@ -251,8 +297,11 @@ const setGoodReadBeepVolume = async() => {
 }
 
 const getGoodReadBeepDuration = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = await FM30.getGoodReadBeepDuration();
+        taskRunning = false;
         txtGoodReadBeepDuration.textContent = state;
         lstGoodReadBeepDuration.value = state;
     } catch (ex) {
@@ -261,9 +310,12 @@ const getGoodReadBeepDuration = async() => {
 }
 
 const setGoodReadBeepDuration = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const duration = lstGoodReadBeepDuration.value;
         const result = await FM30.setGoodReadBeepDuration(duration);
+        taskRunning = false;
         console.log({result});
         await getGoodReadBeepDuration();
     } catch (ex) {
@@ -272,8 +324,11 @@ const setGoodReadBeepDuration = async() => {
 }
 
 const getGoodReadBeepFrequency = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const frequency = await FM30.getGoodReadBeepFrequency();
+        taskRunning = false;
         txtGoodReadBeepFrequency.textContent = frequency;
         lstGoodReadBeepFrequency.value = frequency;
     } catch (ex) {
@@ -282,9 +337,12 @@ const getGoodReadBeepFrequency = async() => {
 }
 
 const setGoodReadBeepFrequency = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const frequency = lstGoodReadBeepFrequency.value;
         const result = await FM30.setGoodReadBeepFrequency(frequency);
+        taskRunning = false;
         console.log({result});
         await getGoodReadBeepFrequency();
     } catch (ex) {
@@ -293,8 +351,11 @@ const setGoodReadBeepFrequency = async() => {
 }
 
 const getPowerOnBeep = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = await FM30.powerOnBeepState();
+        taskRunning = false;
         txtPowerOnBeep.textContent = state;
         lstPowerOnBeep.value = state;
     } catch (ex) {
@@ -303,16 +364,20 @@ const getPowerOnBeep = async() => {
 }
 
 const setPowerOnBeep = async() => {
+    if (taskRunning) return;
     try {
+        taskRunning = true;
         const state = lstPowerOnBeep.value;
         switch (state) {
             case '0':
                 const offResult = await FM30.powerOnBeepDisable();
+                taskRunning = false;
                 console.log({offResult});
                 break;
 
             case '1':
                 const onResult = await FM30.powerOnBeepEnable();
+                taskRunning = false;
                 console.log({onResult});
                 break;
         }

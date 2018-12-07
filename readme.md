@@ -18,7 +18,7 @@ You will need to put your Newland FM30 Barcode Scanner into `USB CDC` mode, to d
 
 ![USB CDC Mode](https://raw.githubusercontent.com/MeldCX/peripheral-newland-fm30-example-app/master/barcode_usb_cdc.png)
 
-3. Exit Setup Mode by
+3. Exit Setup Mode by scanning the `Exit Setup` Barcode below:
 
 ![Exit Setup](https://raw.githubusercontent.com/MeldCX/peripheral-newland-fm30-example-app/master/barcode_exit_setup.png)
 

@@ -4,9 +4,9 @@ This project is an example application for use with MeldCX AgentM, the applicati
 
 ![Screenshot](https://raw.githubusercontent.com/MeldCX/peripheral-newland-fm30-example-app/master/screen_shot.png)
 
-### Getting Started with Newland FM30 in AgentM
+## Getting Started with Newland FM30 in AgentM
 
-## Configuring your Newland FM30 Scanner
+### Configuring your Newland FM30 Scanner
 
 You will need to put your Newland FM30 Barcode Scanner into `USB CDC` mode, to do this follow the below instructions:
 
@@ -22,7 +22,7 @@ You will need to put your Newland FM30 Barcode Scanner into `USB CDC` mode, to d
 
 ![Exit Setup](https://raw.githubusercontent.com/MeldCX/peripheral-newland-fm30-example-app/master/barcode_exit_setup.png)
 
-## Code Dependancies
+### Code Dependancies
 To use the newland scanner in conjuntion with MeldCX agentM you will need to include the MeldCX AgentM Library, instructions using this can be found here: [https://docs.meld.cx/](https://docs.meld.cx/)
 
 The MeldCX Agent will manage the connection and disconnection of the Barcode Scanner.

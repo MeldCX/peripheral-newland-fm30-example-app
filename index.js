@@ -56,7 +56,7 @@ const btnGoodReadBeepDurationSet = document.querySelector('.good-read-beep-durat
 
 /** Good Read Beep - Frequency */
 const txtGoodReadBeepFrequency = document.querySelector('.good-read-beep-frequency-value');
-const btnGoodReadBeepFrequencyGet = document.querySelector('.good-read-beep-duration-get');
+const btnGoodReadBeepFrequencyGet = document.querySelector('.good-read-beep-frequency-get');
 const lstGoodReadBeepFrequency = document.querySelector('.good-read-beep-frequency-select');
 const btnGoodReadBeepFrequencySet = document.querySelector('.good-read-beep-frequency-set');
 
